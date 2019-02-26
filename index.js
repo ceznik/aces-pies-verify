@@ -13,15 +13,6 @@ var compareFileContents = '';
 var parser = new xml2js.Parser();
 
 
-// function readXML(fileloc){
-// 	fs.readFile(fileloc, 'utf8', (err,data) => {
-// 		console.log("Reading File....");
-// 		if (err) throw err;
-// 		var xml = new xmldoc.XmlDocument(data);
-// 		console.log("Read a file containing %s elements", xml.valueWithPath("Trailer.ItemCount"));
-// 	});	
-// }
-
 function readXML(fileloc){
 	return fs.readFile(fileloc, 'utf8', (err,data) => {
 		console.log("Reading File....");
@@ -31,17 +22,15 @@ function readXML(fileloc){
 		console.log("Brand Name: " + xml.valueWithPath("Items.Item.BrandLabel"));
 		console.log("File Effective Date: %s", xml.valueWithPath("Header.BlanketEffectiveDate"));
 		console.log("PIES file contains %s elements", xml.valueWithPath("Trailer.ItemCount"));
+		console.log(xml.valueWithPath("Header.PIESVersion"));
 	});	
 }
 
 
-//readXML(initialFileLocation);
-//readXML(compareToFileLocation);
-
 readXML(process.argv[2]);
 
 // xmlcompare(initialFileContents, compareFileContents, function(result) {
-// 	//console.log(result);
+// 	console.log(result);
 // });
 
 

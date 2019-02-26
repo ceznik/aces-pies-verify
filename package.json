@@ -23,7 +23,10 @@
   },
   "homepage": "https://github.com/ceznik/aces-pies-verify#readme",
   "dependencies": {
+    "ftp": "^0.3.10",
+    "natives": "^1.1.6",
     "node-xml-compare": "^0.1.0",
+    "request": "^2.88.0",
     "unzip": "^0.1.11",
     "xml2js": "^0.4.19",
     "xmldoc": "^1.1.2"
