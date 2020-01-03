@@ -1,6 +1,6 @@
 var Client = require('ftp');
 var fs = require('fs');
-var config = require('./config');
+var config = require('./configs_test');
 
 var c = new Client();
 
@@ -32,7 +32,7 @@ c.on('ready', function(){
 
 
 
-c.connect(config);
+c.connect(config[1]);
 
 
 
