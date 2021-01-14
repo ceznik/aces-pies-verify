@@ -88,9 +88,28 @@ function getApps(fileloc){
 	});
 }
 
+function getPartTypes(fileloc){
+	return fs.readFile(fileloc, 'utf8', (err, data) => {
+		console.log("Reading File...");
+		if (err) throw err;
+		var xml = new xmldoc.XmlDocument(data);
+		var count = 0;
+
+		xml.eachChild((apps) => {
+			if(apps.valueWithPath("PartType@id") == process.argv[3]){
+				count++;
+				console.log(apps.toString() + '\r\n');
+			}
+			
+		})
+		console.log(count + " apps found.");
+	})
+}
+
 
 
 //returnPartNumbers(process.argv[2]);
 //returnBaseIDs(process.argv[2]);
 //streamXML(process.argv[2]);
-getApps(process.argv[2]);
+//getApps(process.argv[2]);
+getPartTypes(process.argv[2]);
